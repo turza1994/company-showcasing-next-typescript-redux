@@ -1,9 +1,21 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProducts } from '../redux/actionCreators/productAction'
 import styles from '../styles/Home.module.css'
+import {RootState} from '../redux/reducers/rootReducer'
 
 const Home: NextPage = () => {
+  const dispatch = useDispatch()
+  const products = useSelector((state: RootState) => state.products.allProducts)
+    console.log(products);
+    
+    useEffect(()=>{
+        dispatch(getProducts())
+    }, [dispatch])
+
   return (
     <div className={styles.container}>
       <Head>
