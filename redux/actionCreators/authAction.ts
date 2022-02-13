@@ -2,17 +2,13 @@ import { actionTypes } from './../actionTypes';
 import axios from "axios"
 
 export const login = (user: object)=>async(dispatch: any)=>{
+    localStorage.removeItem('userInfo')
     try{
         const {email, password}: any = user
         dispatch({
             type: actionTypes.LOGIN_PENDING
         })
 
-        const config = {
-            headers: {
-            'Content-Type': 'application/json',
-            },
-        }
         const { data } = await axios.post(
             'https://devapi.dhakai.com/api/v2/login-buyer',
             {
@@ -23,12 +19,16 @@ export const login = (user: object)=>async(dispatch: any)=>{
                 password
             }
         )
-        dispatch({
-            type: actionTypes.LOGIN_SUCCESS,
-            payload: data,
-        })
+        if(data.message == 'SUCCESS'){
+            dispatch({
+                type: actionTypes.LOGIN_SUCCESS,
+                payload: data,
+            })
 
-        localStorage.setItem('userInfo', JSON.stringify(data))
+            localStorage.setItem('userInfo', JSON.stringify(data))
+        }else{
+            throw new Error('PASSWORD_MISMATCH')
+        }
 
     }catch (error: any) {
         dispatch({

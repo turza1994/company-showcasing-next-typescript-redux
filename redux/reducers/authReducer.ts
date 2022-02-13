@@ -18,14 +18,16 @@ export const authReducer = (state: any = initialState, action: any)=>{
             return {
                 ...state,
                 loading: false,
-                userInfo: action.payload
+                userInfo: action.payload,
+                error: null
             }
         
         case actionTypes.LOGIN_FAIL:
             return {
                 ...state,
                 loading: false,
-                error: action.payload
+                error: action.payload,
+                userInfo: null
             }
         
         default:

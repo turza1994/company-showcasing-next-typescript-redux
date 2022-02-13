@@ -35,7 +35,7 @@ const Home: NextPage = () => {
   }
   
   return (
-    <section className='vh-100 pt-5' style={{backgroundColor: '#508bfc'}}>
+    <section className='vh-100 pt-5' style={{backgroundColor: '#01896a'}}>
         <div className="container py-5">
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
                     <input type="password" id="typePasswordX-2" className="form-control w-75 ms-auto" name='password' onBlur={handleBlur}/>
                   </div>
 
-                  <button className="btn btn-primary btn-lg btn-block w-50" type="submit" onClick={handleFormSubmit}>Login</button>
+                  <button className="btn btn-success btn-lg btn-block w-50" type="submit" onClick={handleFormSubmit} style={{backgroundColor: '#01896a'}}>Login</button>
 
                   <hr className="my-4 w-50 mx-auto" />
                 </div>
