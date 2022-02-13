@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProducts } from '../redux/actionCreators/productAction'
 import styles from '../styles/Home.module.css'
 import {RootState} from '../redux/reducers/rootReducer'
 import { login } from '../redux/actionCreators/authAction'
@@ -18,9 +17,6 @@ const Login: NextPage = () => {
         password: ''
     });
         
-    useEffect(()=>{
-        dispatch(getProducts())
-    }, [dispatch])
 
     useEffect(()=>{
         userInfo && router.push('/')

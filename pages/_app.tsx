@@ -5,7 +5,6 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import store from '../redux/store'
 import { Provider } from 'react-redux'
-import Navbar from "../components/Navbar/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -20,8 +19,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossOrigin="anonymous"
       />
-
-      <Navbar />
 
       <Provider store={store}>
         <Component {...pageProps} />

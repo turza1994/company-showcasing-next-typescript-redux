@@ -1,33 +1,32 @@
-import { ProductAction } from './../actionInterfaces/productAction';
+import { ManufacturersAction } from './../actionInterfaces/ManufacturersAction';
 import { actionTypes } from '../actionTypes';
-import { IProduct } from './../../types';
 
 interface IState{
-  allProducts: null | IProduct[],
+  manufacturers: any,
   loading: boolean,
   error: null | string
 }
 
 const initialState: IState = {
-    allProducts: null,
+    manufacturers: null,
     loading: false,
     error: null
 }
 
-export const productReducer = (state = initialState, action: ProductAction) => {
+export const manufacturersReducer = (state = initialState, action: ManufacturersAction) => {
     switch (action.type) {
-      case actionTypes.GET_PRODUCTS_PENDING: //Getting all Products
+      case actionTypes.GET_MANUFACTURERS_PENDING:
         return { 
             ...state, 
             loading: true 
         }
-      case actionTypes.GET_PRODUCTS_SUCCESS:
+      case actionTypes.GET_MANUFACTURERS_SUCCESS:
         return {
           ...state,
           loading: false,
-          allProducts: action.payload,
+          manufacturers: action.payload,
         }
-      case actionTypes.GET_PRODUCTS_FAIL:
+      case actionTypes.GET_MANUFACTURERS_FAIL:
         return { 
             ...state,
             loading: false,

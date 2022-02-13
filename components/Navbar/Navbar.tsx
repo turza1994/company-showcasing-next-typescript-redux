@@ -3,9 +3,15 @@ import Link from "next/link";
 const Navbar = () => {
   
     return (
-        <nav className="navbar navbar-expand-lg fixed-top fw-bolder" >
+        <nav 
+            className="navbar navbar-expand-lg text-white position-absolute w-100" 
+            style={{
+                height: '80px',
+                backgroundColor: '#01896a'
+            }}  
+        >
             <div className="container">
-                <Link className="navbar-brand text-primary fw-bolder fst-italic" href="/">Turz</Link>
+                <Link href="/">Turz</Link>
                 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i className="navbar-toggler-icon fas fa-align-justify"></i>
