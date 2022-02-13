@@ -13,7 +13,9 @@ if (typeof window !== 'undefined') {
 }
 
 const initialState = {
-  auth: userInfoFromStorage
+  auth: {
+    userInfo: userInfoFromStorage
+  }
 }
 
 const store = createStore(
