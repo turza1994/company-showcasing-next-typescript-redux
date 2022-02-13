@@ -10,12 +10,13 @@ import { login } from '../redux/actionCreators/authAction'
 import { useRouter } from 'next/router'
 import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
+import ManufacturerCard from '../components/ManufacturerCard/ManufacturerCard'
 
 const Home: NextPage = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   const userInfo = useSelector((state: RootState) => state?.auth?.userInfo)
-  const manufacturers = useSelector((state: RootState) => state?.manufacturers)
+  const { loading, manufacturers, error } = useSelector((state: RootState) => state?.manufacturers)
   console.log(manufacturers)
 
   useEffect(()=>{
@@ -29,22 +30,27 @@ const Home: NextPage = () => {
   }, [dispatch, userInfo])
   
   return (
-    <div 
-      className='position-relative vh-100'
-      style={{
-        backgroundColor: '#f2f2f2'
-      }}  
-    >
+    <div className='position-relative' style={{backgroundColor: '#f2f2f2'}} >
+
       <Navbar />
       <Sidebar />
 
-      <main 
-        className=''
-        style={{
-          padding: '80px 0 0 70px'
-        }}
-      >
-        <h1 className='text-black'>Here will be the manufacturers</h1>
+      <main className="" style={{padding: '80px 0 0 70px'}}>
+        <div className="container">
+        <div className='row' style={{}}>
+            {
+              loading ? (
+                <div>loading...</div>
+              ) : error ? (
+                <div>{error}</div>
+              ) : (
+                manufacturers?.result?.manufacturers.map((cv: any) => (
+                  <ManufacturerCard manufacturer={cv} key={cv._id}/>
+                ))
+              )
+            }
+        </div>
+        </div>
       </main>
     </div>
   )

@@ -4,13 +4,14 @@ const Navbar = () => {
   
     return (
         <nav 
-            className="navbar navbar-expand-lg text-white position-absolute w-100" 
+            className="navbar navbar-expand-lg text-white position-fixed w-100" 
             style={{
                 height: '80px',
-                backgroundColor: '#01896a'
+                backgroundColor: '#01896a',
+                zIndex: '1'
             }}  
         >
-            <div className="container">
+            <div className="container position-absolute" style={{}}>
                 <Link href="/">Turz</Link>
                 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -7,7 +7,7 @@ export const getManufacturers = (token: string) => async(dispatch: any)=>{
     })
 
     try{
-        const {data} = await axios.get('https://devapi.dhakai.com/api/v2/manufacturers?skip=1&limit=1', {
+        const {data} = await axios.get('https://devapi.dhakai.com/api/v2/manufacturers', {
             headers: {
                 "Authorization" : `Bearer ${token}`
             }
