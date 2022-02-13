@@ -20,7 +20,7 @@ const Home: NextPage = () => {
 
   useEffect(()=>{
     if(!userInfo){
-      router.push('/Login')
+      router.push('/login')
     }
   }, [userInfo])
 

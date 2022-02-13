@@ -5,16 +5,16 @@ import rootReducer from './reducers/rootReducer';
 
 const middleware = [thunk]
 
-let userInfoFromStorage = null
+let userInfoFromStorage = (typeof window !== 'undefined') && localStorage.getItem('userInfo')
+let userInfo = null
 
 if (typeof window !== 'undefined') {
-  userInfoFromStorage = JSON.parse(localStorage.getItem('userInfo'))
-  console.log(userInfoFromStorage);
+  userInfo = userInfoFromStorage && JSON.parse(userInfoFromStorage)
 }
 
 const initialState = {
   auth: {
-    userInfo: userInfoFromStorage
+    userInfo
   }
 }
 
