@@ -2,7 +2,7 @@
 
 function ManufacturerCard({ manufacturer }: any) {
 
-    const address = manufacturer.addresses[0]
+    const address = manufacturer?.addresses[0]
 
     return (
         <div className='col-md-3 my-2 equal'>
@@ -13,7 +13,7 @@ function ManufacturerCard({ manufacturer }: any) {
                 
                 <div className='d-flex justify-content-around overflow-hidden'>
                     {
-                        manufacturer.meta.banners.map((cv: any) => (
+                        manufacturer?.meta?.banners?.map((cv: any) => (
                             <img
                                 className="w-50 rounded mx-1"
                                 key={cv._id}
@@ -29,18 +29,18 @@ function ManufacturerCard({ manufacturer }: any) {
                     className='card-logo ms-2'
                     style={{ position: 'absolute', top: '80px' }}
                 >
-                    <img src={manufacturer.meta.logo.url} alt='img-fluid' />
+                    <img src={manufacturer?.meta?.logo?.url} alt='img-fluid' />
                 </div>
 
                 <div className='card-body mt-5 cb'>
-                    <h5 className='card-title fw-bold'>{manufacturer.meta.companyName}</h5>
+                    <h5 className='card-title fw-bold'>{manufacturer?.meta?.companyName}</h5>
 
                     <p className='card-text d-flex justify-content-between align-items-center text-secondary'>
                         <span>
-                            {address.city}, {address.country}
+                            {address?.city}, {address?.country}
                         </span>
                         <span className="align-self-start fw-bold">.</span>
-                        <span className='text-success fw-bolder'> Min Qty {manufacturer.minOrderQty}</span>
+                        <span className='text-success fw-bolder'> Min Qty {manufacturer?.minOrderQty}</span>
                     </p>
 
                     <p className="text-secondary lh-1">
