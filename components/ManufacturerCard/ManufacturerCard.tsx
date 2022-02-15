@@ -5,42 +5,46 @@ function ManufacturerCard({ manufacturer }: any) {
     const address = manufacturer?.addresses[0]
 
     return (
-        <div className='col-md-3 my-2 equal'>
+        <div className='col-md-3 my-2 rounded'>
             <div
-                className='card shadow-sm position-relative rounded'
-                style={{ width: '19rem' }}
+                className='card shadow-sm position-relative rounded w-100 h-100 p-1'
+                style={{ height: '300px' }}
             >
                 
-                <div className='d-flex justify-content-around overflow-hidden'>
+                <div className='d-flex justify-content-around w-100 rounded' style={{ height: '90px' }}>
                     {
                         manufacturer?.meta?.banners?.map((cv: any) => (
                             <img
-                                className="w-50 rounded mx-1"
+                                className="h-100 w-50 m-1 rounded overflow-hidden"
                                 key={cv._id}
                                 src={cv.url}
                                 alt=''
-                                style={{ objectFit: 'cover', height: '130px' }}
+                                style={{  }}
                             />
                     )) 
                     }
                 </div>
 
                 <div
-                    className='card-logo ms-2'
-                    style={{ position: 'absolute', top: '80px' }}
+                    className='card-logo ms-3'
+                    style={{ position: 'absolute', top: '40px' }}
                 >
-                    <img src={manufacturer?.meta?.logo?.url} alt='img-fluid' />
+                    <img
+                        src={manufacturer?.meta?.logo?.url} 
+                        alt='img-fluid' 
+                        className=""
+                    />
                 </div>
 
-                <div className='card-body mt-5 cb'>
-                    <h5 className='card-title fw-bold'>{manufacturer?.meta?.companyName}</h5>
+                <div className='card-body mt-4 cb px-3'>
+                    <h5 className='card-title fw-bold pt-2'>{manufacturer?.meta?.companyName}</h5>
 
                     <p className='card-text d-flex justify-content-between align-items-center text-secondary'>
                         <span>
                             {address?.city}, {address?.country}
                         </span>
-                        <span className="align-self-start fw-bold">.</span>
-                        <span className='text-success fw-bolder'> Min Qty {manufacturer?.minOrderQty}</span>
+                        <span className="fw-bold">.</span>
+                        <span className='mqty'> Min Qty {manufacturer?.minOrderQty}</span>
                     </p>
 
                     <p className="text-secondary lh-1">
@@ -50,7 +54,7 @@ function ManufacturerCard({ manufacturer }: any) {
 
                     <button 
                         className='btn btn-success text-success rounded-pill border-0 fw-bold px-4'
-                        style= {{ backgroundColor: '#d1ffd0'}} 
+                        style= {{ backgroundColor: '#d1ffd0', color: '#01896a'}} 
                     >
                         
                         View Details
